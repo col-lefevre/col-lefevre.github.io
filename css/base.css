@@ -1,6 +1,86 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #0d52d2;
+    --link-hover-color: #0d52d2cc;
+    --main-font-size: 18px;
+}
+
 img {
     max-width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 0.25rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+@font-face {
+    font-family: "Lora";
+    src: url("../assets/Lora-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+}
+
+html {
+    background-color: var(--background-color);
+    font-family: "Lora", sans-serif;
+    font-size: var(--main-font-size);
+}
+
+body {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-variation-settings: "wght" 400;
+    letter-spacing: 0.25px;
+    margin: 0px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+a:focus {
+    text-decoration: underline;
+}
+
+.name {
+    font-variation-settings: "wght" 500;
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.pre-name {
+    margin-bottom: 0.25rem;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 0.33rem;
 }
