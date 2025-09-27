@@ -1,0 +1,228 @@
+/* Fonts */
+:root {
+    --background-color: #11191f;
+    --border-color: #1f2d38;
+    --popout-color: #141e26;
+    --text-color: #bbc6ce;
+    --subtitle-color: #728a9b;
+    --subtitle-hover-color: #86a2b6;
+    --heading-color: #e1e6eb;
+    --heading-hover-color: #fff;
+    --link-color: #1095c1;
+    --link-hover-color: #19b3e6;
+    --button-color: #4f6372;
+    --button-hover-color: #5f788b;
+    --main-font-size: 18px;
+    --nav-gap: 1.25rem;
+    --transition-delay: 0.2s;
+    --transition-style: ease-in-out;
+    /* Colors from PicoCSS Dark mode */
+    /* 
+    Old subtitle: #596b78
+    Old subtitle hover: #73828c, 
+    */
+}
+
+@font-face {
+    font-family: "OpenSans-Var";
+    src: url("../assets/fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    font-display: swap;
+}
+
+html {
+    background-color: var(--background-color);
+    font-family: "OpenSans-Var", sans-serif;
+}
+
+body {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-variation-settings: "wght" 400, "wdth" 100;
+    letter-spacing: 0.25px;
+    margin: 0px;
+}
+
+nav {
+    font-size: 1rem;
+}
+
+.subtitle {
+    color: var(--subtitle-color);
+    letter-spacing: 0.1px;
+    /* Inherits rest from <body> */
+}
+
+.h1 {
+    font-size: 2rem;
+    color: var(--heading-color);
+    font-variation-settings: "wght" 650, "wdth" 100;
+    letter-spacing: -0.5px;
+    display: block;
+}
+
+.h2 {
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    font-variation-settings: "wght" 550, "wdth" 100;
+    letter-spacing: -0.5px;
+    display: block;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all var(--transition-delay) var(--transition-style);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* BOOTSTRAP GRID HELPERS
+ 
+Mobile - "extra small", <576px
+Tablet - "small + medium", <992px & >=576px
+Desktop - "large + extra large"+, >=992px
+
+https://getbootstrap.com/docs/4.0/layout/grid/
+*/
+
+.mobile {
+    display: none;
+}
+
+.tablet {
+    display: none;
+}
+
+.desktop {
+    display: none;
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .desktop {
+        display: flex;
+    }
+    html {
+        font-size: calc(var(--main-font-size) * 1);
+    }
+    #content-wrap {
+        margin-top: 4rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 576px) and (max-width: 991px) {
+    .tablet {
+        display: flex;
+    }
+    html {
+        font-size: calc(var(--main-font-size) * 1);
+    }
+    #content-wrap {
+        margin-top: 3rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+    .mobile {
+        display: flex;
+    }
+    html {
+        font-size: calc(var(--main-font-size) * 0.9);
+    }
+    #content-wrap {
+        margin-top: 2rem;
+    }
+}
+
+/* IMAGES */
+img {
+    border-radius: 0.25rem;
+}
+
+.tablet img,
+.mobile img {
+    border-radius: 0.5rem;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* DEPRECATED - Can't get to work on Firefox :( */
+/* .crop-1x1 {
+    aspect-ratio: 1 / 1;
+}
+
+.crop-3x2 {
+    aspect-ratio: 3 / 2;
+}
+
+.crop-2x3 {
+    aspect-ratio: 2 / 3;
+}
+
+.crop-16x9 {
+    aspect-ratio: 16 / 9;
+} */
+
+/* MISC */
+p {
+    margin: 1.25rem 0rem;
+}
+
+.vertical-center {
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* SCROLLBAR */
+/* WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 0.5rem; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 1rem;/
+}
+
+::-webkit-scrollbar-track {
+    background-color: none;
+}
+
+/* ACCESSIBILITY */
+/* Source: https://kittygiraudel.com/2016/10/13/css-hide-and-seek/ */
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+/* Reset heading tags so they can flexibly be used for screen reading */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* Visually show focus */
+a:focus {
+    text-decoration: underline;
+}
