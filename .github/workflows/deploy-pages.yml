@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout source repository
+              uses: actions/checkout@v4
+
+            - name: Deploy to GitHub Pages repository
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  # Personal access token for authentication
+                  personal_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+                  # Target repository (replace with your actual GitHub Pages repo)
+                  external_repository: col-lefevre/col-lefevre.github.io
+
+                  # Directory to publish (use . for root, or specify subdirectory like 'dist' or 'build')
+                  publish_dir: ./
+
+                  # Optional: Custom commit message
+                  commit_message: "Deploy from source repo: ${{ github.sha }}"
+
+                  # Optional: Keep git history in pages repo
+                  keep_files: false
+
+                  # Optional: Set user info for commits
+                  user_name: "github-actions[bot]"
+                  user_email: "github-actions[bot]@users.noreply.github.com"
